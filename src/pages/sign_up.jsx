@@ -2,7 +2,7 @@ import React from "react";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-// import { Google } from '@material-ui/icons';
+import { Google } from '@material-ui/icons';
 import "../styles/index.scss";
 import { Container, Typography } from "@mui/material";
 
@@ -17,7 +17,7 @@ function sign_up() {
           
           className="button"
           sx={{ my: "24px",  color:"black", borderColor:"#E6E6E6"}}
-          // startIcon={<Google />}
+          startIcon={<Google />}
 
         >
           Sign Up with Google
