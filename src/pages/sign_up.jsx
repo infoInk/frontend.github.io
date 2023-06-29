@@ -2,11 +2,15 @@ import React from "react";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import { Google } from '@material-ui/icons';
+// import { Google } from '@material-ui/icons';
 import "../styles/index.scss";
 import { Container, Typography } from "@mui/material";
+import { ReactComponent as SocialIcon } from './Social.svg';
+
 
 function sign_up() {
+
+  
   return (
     <div>
       <Box sx={{ py: "80px" }}>
@@ -16,11 +20,11 @@ function sign_up() {
           variant="outlined"
           
           className="button"
-          sx={{ my: "24px",  color:"black", borderColor:"#E6E6E6"}}
-          startIcon={<Google />}
+          sx={{ my: "24px",  color:"black", borderColor:"#E6E6E6" ,textTransform: "none"}}
+          startIcon={<SocialIcon />}
 
         >
-          Sign Up with Google
+          Sign up with Google
         </Button>
         <Box
           sx={{
@@ -76,7 +80,7 @@ function sign_up() {
           variant="contained"
           disableElevation
           className="button"
-          sx={{ my: "24px", backgroundColor: "#1751D0" }}
+          sx={{ my: "24px", backgroundColor: "#1751D0" ,textTransform: "none"}}
         >
           Create Account
         </Button>
