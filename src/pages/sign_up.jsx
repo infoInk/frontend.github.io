@@ -4,13 +4,14 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 // import { Google } from '@material-ui/icons';
 import "../styles/index.scss";
-import { Container, Typography } from "@mui/material";
+import { Container, Typography, useMediaQuery, useTheme} from "@mui/material";
 import { ReactComponent as SocialIcon } from './Social.svg';
 
 
-function sign_up() {
+function SignUp() {
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
-  
   return (
     <div>
       <Box sx={{ py: "80px" }}>
@@ -20,7 +21,8 @@ function sign_up() {
           variant="outlined"
           
           className="button"
-          sx={{ my: "24px",  color:"black", borderColor:"#E6E6E6" ,textTransform: "none"}}
+          sx={{ my: "24px",  color:"black", borderColor:"#E6E6E6" ,textTransform: "none",   height: isDesktop ? "40px" : "33.8px",
+          width: isDesktop ? "400px" : "338px",}}
           startIcon={<SocialIcon />}
 
         >
@@ -34,7 +36,8 @@ function sign_up() {
             alignItems: "center",
             border: "1px solid #E6E6E6",
             borderRadius: "4px",
-            mx: "440px",
+            mx: isDesktop ? "440px" : "26px",
+            px: isDesktop ? "0" : "0px",
           }}
         >
           <TextField
@@ -83,7 +86,8 @@ function sign_up() {
           variant="contained"
           disableElevation
           className="button"
-          sx={{ my: "24px", backgroundColor: "#1751D0" ,textTransform: "none"}}
+          sx={{ my: "24px", backgroundColor: "#1751D0" ,textTransform: "none",  height: isDesktop ? "40px" : "33.8px",
+          width: isDesktop ? "400px" : "338px",}}
         >
           Create Account
         </Button>
@@ -97,4 +101,4 @@ function sign_up() {
   );
 }
 
-export default sign_up;
+export default SignUp;
