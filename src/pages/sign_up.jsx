@@ -46,6 +46,8 @@ function sign_up() {
               "& .MuiFilledInput-root": {
                 maxheight: "40px",
                 maxwidth: "400px",
+                backgroundColor:'#ffff'
+
               },
             }}
           />
@@ -58,7 +60,7 @@ function sign_up() {
               "& .MuiFilledInput-root": {
                 maxheight: "40px",
                 maxwidth: "400px",
-                color:'#ffff'
+                backgroundColor:'#ffff'
               },
             }}
           />
@@ -71,6 +73,7 @@ function sign_up() {
               "& .MuiFilledInput-root": {
                 maxheight: "40px",
                 maxwidth: "400px",
+                backgroundColor:'#ffff'
               },
             }}
           />
