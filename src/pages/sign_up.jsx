@@ -4,9 +4,8 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 // import { Google } from '@material-ui/icons';
 import "../styles/index.scss";
-import { Container, Typography, useMediaQuery, useTheme} from "@mui/material";
-import { ReactComponent as SocialIcon } from './Social.svg';
-
+import { Container, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { ReactComponent as SocialIcon } from "./Social.svg";
 
 function SignUp() {
   const theme = useTheme();
@@ -19,12 +18,16 @@ function SignUp() {
         <p>Enter the fields below to get started</p>
         <Button
           variant="outlined"
-          
           className="button"
-          sx={{ my: "24px",  color:"black", borderColor:"#E6E6E6" ,textTransform: "none",   height: isDesktop ? "40px" : "33.8px",
-          width: isDesktop ? "400px" : "338px",}}
+          sx={{
+            my: "24px",
+            color: "black",
+            borderColor: "#E6E6E6",
+            textTransform: "none",
+            height: isDesktop ? "40px" : "33.8px",
+            width: isDesktop ? "400px" : "338px",
+          }}
           startIcon={<SocialIcon />}
-
         >
           Sign up with Google
         </Button>
@@ -49,8 +52,7 @@ function SignUp() {
               "& .MuiFilledInput-root": {
                 maxheight: "40px",
                 maxwidth: "400px",
-                backgroundColor:'#ffff'
-
+                backgroundColor: "#ffff",
               },
             }}
           />
@@ -63,7 +65,7 @@ function SignUp() {
               "& .MuiFilledInput-root": {
                 maxheight: "40px",
                 maxwidth: "400px",
-                backgroundColor:'#ffff'
+                backgroundColor: "#ffff",
               },
             }}
           />
@@ -76,7 +78,7 @@ function SignUp() {
               "& .MuiFilledInput-root": {
                 maxheight: "40px",
                 maxwidth: "400px",
-                backgroundColor:'#ffff'
+                backgroundColor: "#ffff",
               },
             }}
           />
@@ -86,16 +88,27 @@ function SignUp() {
           variant="contained"
           disableElevation
           className="button"
-          sx={{ my: "24px", backgroundColor: "#1751D0" ,textTransform: "none",  height: isDesktop ? "40px" : "33.8px",
-          width: isDesktop ? "400px" : "338px",}}
+          sx={{
+            my: "24px",
+            backgroundColor: "#1751D0",
+            textTransform: "none",
+            height: isDesktop ? "40px" : "33.8px",
+            width: isDesktop ? "400px" : "338px",
+          }}
         >
           Create Account
         </Button>
-        <Container sx={{
+        <Container
+          sx={{
             display: "flex",
-            flexDirection: "row",  justifyContent: "center",
-            alignItems: "center",}}><Typography >Already have an account? </Typography><Typography sx={{color:"#1751D0"}}>Log in</Typography></Container>
-        
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Typography>Already have an account? </Typography>
+          <Typography sx={{ color: "#1751D0" }}>Log in</Typography>
+        </Container>
       </Box>
     </div>
   );

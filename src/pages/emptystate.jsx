@@ -25,18 +25,39 @@ function Empty() {
             fill="#F1F1F1"
           />
         </svg>
-        <Box sx={{my:"20px"}}>
+        <Box sx={{ my: "20px" }}>
           <Typography>Welcome to UGChat!</Typography>
           <Typography>How may i help you today?</Typography>
-          <Typography sx={{my:"10px"}}>
+          <Typography sx={{ my: "10px" }}>
             I'm here to provide you with the information you're seeking.
             <br /> So go ahead, ask away and let's start our conversation!
           </Typography>
         </Box>
-        <Box sx={{width:"855px",mx:"180px"}}>
-        <TextField fullWidth label="Type here..." id="fullWidth" />
+        <Box sx={{ width: "855px", mx: "180px" ,display:"flex"}}>
+          <TextField fullWidth label="Type here..." id="fullWidth" />
+          <svg
+            width="24"
+            height="25"
+            viewBox="0 0 24 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M22 2.5L11 13.5"
+              stroke="#7F7D83"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M22 2.5L15 22.5L11 13.5L2 9.5L22 2.5Z"
+              stroke="#7F7D83"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
         </Box>
-       
       </Container>
     </div>
   );

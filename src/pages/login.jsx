@@ -3,7 +3,7 @@ import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { Container, Typography, useMediaQuery, useTheme } from "@mui/material";
-import { ReactComponent as SocialIcon } from './Social.svg';
+import { ReactComponent as SocialIcon } from "./Social.svg";
 import "../styles/index.scss";
 
 function Login() {
@@ -15,7 +15,7 @@ function Login() {
       <Box sx={{ py: "20px" }}>
         <h1>Login to your account</h1>
         <p>Enter your credentials below</p>
-       
+
         <Box
           sx={{
             display: "flex",
@@ -55,42 +55,43 @@ function Login() {
             }}
           />
         </Box>
-        <Box    
-        sx={{
+        <Box
+          sx={{
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-          }}>
-        <Button
-          variant="contained"
-          disableElevation
-          className="button"
-          sx={{
-            my: "20px",
-            backgroundColor: "#1751D0",
-            textTransform: "none",
-            height: isDesktop ? "40px" : "33.8px",
-            width: isDesktop ? "400px" : "338px",
           }}
         >
-          Login
-        </Button>
-        <Button
-          variant="outlined"
-          className="button"
-          sx={{
-            my:"20px",
-            color: "black",
-            borderColor: "#E6E6E6",
-            textTransform: "none",
-            height: isDesktop ? "40px" : "33.8px",
-            width: isDesktop ? "400px" : "338px",
-          }}
-          startIcon={<SocialIcon />}
-        >
-          Sign in with Google
-        </Button>
+          <Button
+            variant="contained"
+            disableElevation
+            className="button"
+            sx={{
+              my: "20px",
+              backgroundColor: "#1751D0",
+              textTransform: "none",
+              height: isDesktop ? "40px" : "33.8px",
+              width: isDesktop ? "400px" : "338px",
+            }}
+          >
+            Login
+          </Button>
+          <Button
+            variant="outlined"
+            className="button"
+            sx={{
+              my: "20px",
+              color: "black",
+              borderColor: "#E6E6E6",
+              textTransform: "none",
+              height: isDesktop ? "40px" : "33.8px",
+              width: isDesktop ? "400px" : "338px",
+            }}
+            startIcon={<SocialIcon />}
+          >
+            Sign in with Google
+          </Button>
         </Box>
         <Container
           sx={{
