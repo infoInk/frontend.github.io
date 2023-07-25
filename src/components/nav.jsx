@@ -7,13 +7,14 @@ import { Container } from "@mui/material";
 
 function nav() {
   return (
-    <Container sx={{boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)"}}>
+    <div>
+    <Container sx={{boxShadow: "0px 4px 4px -2px rgba(0, 0, 0, 0.1)", maxWidth: "100%" }}>
       <Box sx={{
         display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            mx:"80px",
-            
+            mx:"50px",
+          
            }}>
         <Button
           variant="contained"
@@ -23,8 +24,8 @@ function nav() {
             my: "24px",
             backgroundColor: "#1751D0",
             textTransform: "none",
-            height: "40px",
-            width: "86px",
+            height: "30px",
+            width: "76px",
             whiteSpace: "nowrap", 
             
 
@@ -33,7 +34,7 @@ function nav() {
           New Chat
         </Button>
 
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="32" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="24" cy="24" r="24" fill="#ECECED"/>
       <path d="M28.2994 18.3929C28.2994 20.5981 26.4767 22.3858 24.2284 22.3858C21.9801 22.3858 20.1574 20.5981 20.1574 18.3929C20.1574 16.1877 21.9801 14.4 24.2284 14.4C26.4767 14.4 28.2994 16.1877 28.2994 18.3929Z" fill="#7F7D83"/>
       <path d="M32.4571 27.6531V30.2018C31.4844 32.1588 28.1689 33.6 24.2284 33.6C20.2879 33.6 16.9724 32.1588 16 30.2018V27.6531C16 25.7763 18.4253 23.7451 23.9687 23.7451C29.5122 23.7451 32.4571 25.7763 32.4571 27.6531Z" fill="#7F7D83"/>
@@ -42,6 +43,7 @@ function nav() {
 
       
     </Container>
+    </div>
   );
 }
 
