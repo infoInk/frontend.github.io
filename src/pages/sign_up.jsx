@@ -6,7 +6,6 @@ import Button from "@mui/material/Button";
 import "../styles/index.scss";
 import { Container, Typography, useMediaQuery, useTheme} from "@mui/material";
 import { ReactComponent as SocialIcon } from './Social.svg';
-import Nav from '../components/nav'
 
 
 function SignUp() {
@@ -15,8 +14,7 @@ function SignUp() {
 
   return (
     <div>
-      <Nav/>
-      <Box sx={{ py: "80px" }}>
+      <Box sx={{ py: "20px" }}>
         <h1>Create your account</h1>
         <p>Enter the fields below to get started</p>
         <Button

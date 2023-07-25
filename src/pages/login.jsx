@@ -12,7 +12,7 @@ function Login() {
 
   return (
     <div>
-      <Box sx={{ py: "80px" }}>
+      <Box sx={{ py: "20px" }}>
         <h1>Login to your account</h1>
         <p>Enter your credentials below</p>
        
