@@ -33,7 +33,7 @@ function Empty() {
             <br /> So go ahead, ask away and let's start our conversation!
           </Typography>
         </Box>
-        <Box sx={{ width: "855px", mx: "180px" ,display:"flex"}}>
+        <Box sx={{ width: "855px", mx: "180px", display:"flex",}}>
           <TextField fullWidth label="Type here..." id="fullWidth" />
           <svg
             width="24"
@@ -41,6 +41,7 @@ function Empty() {
             viewBox="0 0 24 25"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            
           >
             <path
               d="M22 2.5L11 13.5"
