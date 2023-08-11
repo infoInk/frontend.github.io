@@ -5,12 +5,8 @@ import {
   List,
   ListItem,
   ListItemIcon,
-  ListItemText,
   IconButton,
 } from "@mui/material";
-import InboxIcon from "@mui/icons-material/Inbox";
-import DraftsIcon from "@mui/icons-material/Drafts";
-import CloseIcon from "@mui/icons-material/Close";
 import ViewSidebarOutlinedIcon from "@mui/icons-material/ViewSidebarOutlined";
 import SearchInput from "./search";
 
