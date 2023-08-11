@@ -6,7 +6,7 @@ import { Container } from "@mui/material";
 function nav() {
   return (
     <div>
-      <Container
+      <Box
         sx={{
           boxShadow: "0px 4px 4px -2px rgba(0, 0, 0, 0.1)",
           maxWidth: "100%",
@@ -54,7 +54,7 @@ function nav() {
             />
           </svg>
         </Box>
-      </Container>
+      </Box>
     </div>
   );
 }
