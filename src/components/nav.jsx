@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
-import { Container } from "@mui/material";
+import SidebarLayout from "../components/sidebar";
+import { IconButton, Menu, MenuItem } from "@mui/material";
+import ViewSidebarOutlinedIcon from "@mui/icons-material/ViewSidebarOutlined";
 
-function nav() {
+function Nav() {
   return (
     <div>
       <Box
         sx={{
           boxShadow: "0px 4px 4px -2px rgba(0, 0, 0, 0.1)",
           maxWidth: "100%",
+          maxHeight: "70px",
         }}
       >
         <Box
@@ -20,6 +23,8 @@ function nav() {
             mx: "50px",
           }}
         >
+          <Box sx={{display:"flex"}}>
+          <SidebarLayout />
           <Button
             variant="contained"
             disableElevation
@@ -35,6 +40,7 @@ function nav() {
           >
             New Chat
           </Button>
+          </Box>
 
           <svg
             width="32"
@@ -59,4 +65,4 @@ function nav() {
   );
 }
 
-export default nav;
+export default Nav;

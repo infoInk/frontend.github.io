@@ -25,9 +25,9 @@ function Empty() {
             fill="#F1F1F1"
           />
         </svg>
-        <Box sx={{ my: "20px" }}>
+        <Box sx={{ my: "40px" }}>
           <Typography><strong>Welcome to UGChat!</strong></Typography>
-          <Typography><strong>How may I help you today?</strong></Typography>
+          <Typography><strong>How may  help you today?</strong></Typography>
           <Typography sx={{ my: "10px" }}>
             I'm here to provide you with the information you're seeking.
             <br /> So go ahead, ask away and let's start our conversation!
