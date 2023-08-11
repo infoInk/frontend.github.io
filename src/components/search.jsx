@@ -1,5 +1,5 @@
 import React from "react";
-import { InputBase, IconButton, Paper } from "@mui/material";
+import { InputBase, IconButton } from "@mui/material";
 import Box from "@mui/material/Box";
 import SearchIcon from "@mui/icons-material/Search";
 
