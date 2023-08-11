@@ -12,6 +12,7 @@ import InboxIcon from "@mui/icons-material/Inbox";
 import DraftsIcon from "@mui/icons-material/Drafts";
 import CloseIcon from "@mui/icons-material/Close";
 import ViewSidebarOutlinedIcon from "@mui/icons-material/ViewSidebarOutlined";
+import SearchInput from "./search";
 
 const SidebarLayout = () => {
   const [sideDockOpen, setSideDockOpen] = useState(false);
@@ -23,30 +24,58 @@ const SidebarLayout = () => {
   return (
     <div style={{ display: "flex" }}>
       <CssBaseline />
+
       <Drawer variant="persistent" anchor="left" open={sideDockOpen}>
         <List>
           <ListItem button>
             <ListItemIcon>
-              <InboxIcon />
+              <div style={{ padding: "10px" }}>
+                <SearchInput />
+
+              </div>
+              <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            padding: "8px",
+          }}
+        >
+          <IconButton
+            onClick={handleSideDockToggle}
+            color="inherit"
+            aria-label="toggle-sidebar"
+            sx={{
+                border: "1px solid #ADACB0",
+                borderRadius: "10% ",
+            }}
+          >
+          <ViewSidebarOutlinedIcon />
+          </IconButton>
+        </div>
             </ListItemIcon>
-            <ListItemText primary="Inbox" />
           </ListItem>
-          <ListItem button>
-            <ListItemIcon>
-              <DraftsIcon />
-            </ListItemIcon>
-            <ListItemText primary="Drafts" />
-          </ListItem>
+          {/* Add other ListItems here */}
         </List>
+        {/* View Sidebar icon in the sidebar */}
+        
       </Drawer>
       <div style={{ flexGrow: 1 }}>
+        {/* View Sidebar icon in the main content area */}
         <IconButton
           onClick={handleSideDockToggle}
           edge="start"
           color="inherit"
           aria-label="toggle-sidebar"
+          sx={{
+            border: "1px solid #ADACB0",
+            borderRadius: "10%",
+          }}
         >
-          {sideDockOpen ? <CloseIcon /> : <ViewSidebarOutlinedIcon />}
+          {sideDockOpen ? (
+            <ViewSidebarOutlinedIcon />
+          ) : (
+            <ViewSidebarOutlinedIcon />
+          )}
         </IconButton>
       </div>
     </div>

@@ -23,23 +23,29 @@ function Nav() {
             mx: "50px",
           }}
         >
-          <Box sx={{display:"flex"}}>
-          <SidebarLayout />
-          <Button
-            variant="contained"
-            disableElevation
-            className="button"
+          <Box
             sx={{
-              my: "24px",
-              backgroundColor: "#1751D0",
-              textTransform: "none",
-              height: "30px",
-              width: "76px",
-              whiteSpace: "nowrap",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
-            New Chat
-          </Button>
+            <SidebarLayout />
+            <Button
+              variant="contained"
+              disableElevation
+              className="button"
+              sx={{
+                my: "24px",
+                backgroundColor: "#1751D0",
+                textTransform: "none",
+                height: "30px",
+                width: "76px",
+                whiteSpace: "nowrap",
+              }}
+            >
+              New Chat
+            </Button>
           </Box>
 
           <svg

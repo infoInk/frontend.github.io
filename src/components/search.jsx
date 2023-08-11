@@ -1,11 +1,27 @@
-import * as React from "react";
-import TextField from "@mui/material/TextField";
-import Stack from "@mui/material/Stack";
+import React from "react";
+import { InputBase, IconButton, Paper } from "@mui/material";
+import Box from "@mui/material/Box";
+import SearchIcon from "@mui/icons-material/Search";
 
-export default function FreeSolo() {
+const SearchInput = () => {
   return (
-    <Stack spacing={2} sx={{ width: 300 }}>
-      <TextField label="Search input" />
-    </Stack>
+    <Box
+      component="form"
+      elevation={0}
+      sx={{
+        border: "1px solid #ADACB0",
+        borderRadius: "10% ",
+      }}
+    >
+      <IconButton aria-label="search">
+        <SearchIcon />
+      </IconButton>
+      <InputBase
+        placeholder="Search chat history"
+        inputProps={{ "aria-label": "search" }}
+      />
+    </Box>
   );
-}
+};
+
+export default SearchInput;
