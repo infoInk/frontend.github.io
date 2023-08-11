@@ -27,6 +27,7 @@ function Nav() {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+             
             }}
           >
             <SidebarLayout />
@@ -41,6 +42,7 @@ function Nav() {
                 height: "30px",
                 width: "76px",
                 whiteSpace: "nowrap",
+                mx:"10px"
               }}
             >
               New Chat
