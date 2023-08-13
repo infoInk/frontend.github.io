@@ -65,6 +65,7 @@ const SidebarLayout = () => {
           sx={{
             border: "1px solid #ADACB0",
             borderRadius: "6px",
+            ml:"50px"
           }}
         >
           {sideDockOpen ? (
