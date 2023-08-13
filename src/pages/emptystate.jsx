@@ -1,9 +1,11 @@
-import { Container, Typography } from "@mui/material";
+import { Container, Typography , useMediaQuery, useTheme } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import React from "react";
 
 function Empty() {
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   return (
     <div>
       <Container sx={{ my: "60px" }}>
@@ -183,22 +185,27 @@ function Empty() {
           </Typography>
         </Box>
         <Box
-          sx={{
-            width: "855px",
-            mx: "180px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            borderTop: "1px solid #DCDCDE",
-           
-          }}
-        >
+            sx={{
+              display: "flex",
+              flexDirection: isDesktop ? "row" : "row",
+              alignItems: isDesktop ? "center" : "center",
+              borderTop: "1px solid #DCDCDE",
+              pt: "20px",
+              mt: "20px",
+            }}
+          >
           
           <TextField
             fullWidth
             label="Type here..."
             id="fullWidth"
-            sx={{ mx: "20px", my:"20px" }}
+            sx={{
+              mb: isDesktop ? "0" : "20px",
+              width: isDesktop ? "855px" : "100%",
+              mr: isDesktop ? "20px" : "20px",
+              ml: isDesktop ? "160px" : "20px",
+
+            }}
           />
           <svg
             width="24"
@@ -206,6 +213,7 @@ function Empty() {
             viewBox="0 0 24 25"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+           
           >
             <path
               d="M22 2.5L11 13.5"
