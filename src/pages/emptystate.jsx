@@ -8,7 +8,7 @@ function Empty() {
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   return (
     <div>
-      <Container sx={{ my: "60px" }}>
+      <Container sx={{ my: "60px" , mx: isDesktop ? "40px" : "100px", }}>
         <svg
           width="307"
           height="214"
@@ -172,7 +172,7 @@ function Empty() {
             </filter>
           </defs>
         </svg>
-        <Box sx={{ my: "40px" }}>
+        <Box sx={{ my: isDesktop ? "40px" : "0px"}}>
           <Typography>
             <strong>Welcome to UGChat!</strong>
           </Typography>
