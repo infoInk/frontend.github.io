@@ -42,7 +42,7 @@ const SidebarLayout = () => {
             aria-label="toggle-sidebar"
             sx={{
                 border: "1px solid #ADACB0",
-                borderRadius: "10% ",
+                borderRadius: "6px ",
             }}
           >
           <ViewSidebarOutlinedIcon />
@@ -64,7 +64,7 @@ const SidebarLayout = () => {
           aria-label="toggle-sidebar"
           sx={{
             border: "1px solid #ADACB0",
-            borderRadius: "10%",
+            borderRadius: "6px",
           }}
         >
           {sideDockOpen ? (

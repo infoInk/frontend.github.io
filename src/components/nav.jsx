@@ -42,7 +42,7 @@ function Nav() {
                 height: "30px",
                 width: "76px",
                 whiteSpace: "nowrap",
-                mx:"10px"
+                mx:"180px"
               }}
             >
               New Chat

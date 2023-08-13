@@ -6,11 +6,9 @@ import SearchIcon from "@mui/icons-material/Search";
 const SearchInput = () => {
   return (
     <Box
-      component="form"
-      elevation={0}
       sx={{
         border: "1px solid #ADACB0",
-        borderRadius: "10% ",
+        borderRadius: "6px ",
       }}
     >
       <IconButton aria-label="search">
