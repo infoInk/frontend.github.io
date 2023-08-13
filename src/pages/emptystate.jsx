@@ -189,13 +189,16 @@ function Empty() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            borderTop: "1px solid #DCDCDE",
+           
           }}
         >
+          
           <TextField
             fullWidth
             label="Type here..."
             id="fullWidth"
-            sx={{ mx: "20px" }}
+            sx={{ mx: "20px", my:"20px" }}
           />
           <svg
             width="24"
