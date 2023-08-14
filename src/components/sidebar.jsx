@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  CssBaseline,
   Drawer,
   List,
   ListItem,
@@ -19,41 +18,37 @@ const SidebarLayout = () => {
 
   return (
     <div style={{ display: "flex" }}>
-      <CssBaseline />
-
       <Drawer variant="persistent" anchor="left" open={sideDockOpen}>
         <List>
           <ListItem button>
             <ListItemIcon>
               <div style={{ padding: "10px" }}>
                 <SearchInput />
-
               </div>
               <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            padding: "8px",
-          }}
-        >
-          <IconButton
-            onClick={handleSideDockToggle}
-            color="inherit"
-            aria-label="toggle-sidebar"
-            sx={{
-                border: "1px solid #ADACB0",
-                borderRadius: "6px ",
-            }}
-          >
-          <ViewSidebarOutlinedIcon />
-          </IconButton>
-        </div>
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  padding: "8px",
+                }}
+              >
+                <IconButton
+                  onClick={handleSideDockToggle}
+                  color="inherit"
+                  aria-label="toggle-sidebar"
+                  sx={{
+                    border: "1px solid #ADACB0",
+                    borderRadius: "6px ",
+                  }}
+                >
+                  <ViewSidebarOutlinedIcon />
+                </IconButton>
+              </div>
             </ListItemIcon>
           </ListItem>
           {/* Add other ListItems here */}
         </List>
         {/* View Sidebar icon in the sidebar */}
-        
       </Drawer>
       <div style={{ flexGrow: 1 }}>
         {/* View Sidebar icon in the main content area */}
@@ -65,7 +60,7 @@ const SidebarLayout = () => {
           sx={{
             border: "1px solid #ADACB0",
             borderRadius: "6px",
-            ml:"50px"
+            ml: "50px",
           }}
         >
           {sideDockOpen ? (

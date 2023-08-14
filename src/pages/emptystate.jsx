@@ -1,4 +1,4 @@
-import { Container, Typography , useMediaQuery, useTheme } from "@mui/material";
+import { Container, Typography, useMediaQuery, useTheme } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import React from "react";
@@ -8,7 +8,7 @@ function Empty() {
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   return (
     <div>
-      <Container sx={{ my: "60px" , mx: isDesktop ? "40px" : "100px", }}>
+      <Container sx={{ my: "60px", mx: isDesktop ? "40px" : "100px" }}>
         <svg
           width="307"
           height="214"
@@ -93,9 +93,9 @@ function Empty() {
               width="239.676"
               height="71.75"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feColorMatrix
                 in="SourceAlpha"
                 values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
@@ -121,9 +121,9 @@ function Empty() {
               width="239.676"
               height="71.75"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feColorMatrix
                 in="SourceAlpha"
                 values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
@@ -149,9 +149,9 @@ function Empty() {
               width="239.676"
               height="71.75"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feColorMatrix
                 in="SourceAlpha"
                 values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
@@ -172,7 +172,7 @@ function Empty() {
             </filter>
           </defs>
         </svg>
-        <Box sx={{ my: isDesktop ? "40px" : "0px"}}>
+        <Box sx={{ my: isDesktop ? "40px" : "0px" }}>
           <Typography>
             <strong>Welcome to UGChat!</strong>
           </Typography>
@@ -185,16 +185,15 @@ function Empty() {
           </Typography>
         </Box>
         <Box
-            sx={{
-              display: "flex",
-              flexDirection: isDesktop ? "row" : "row",
-              alignItems: isDesktop ? "center" : "center",
-              borderTop: "1px solid #DCDCDE",
-              pt: "20px",
-              mt: "20px",
-            }}
-          >
-          
+          sx={{
+            display: "flex",
+            flexDirection: isDesktop ? "row" : "row",
+            alignItems: isDesktop ? "center" : "center",
+            borderTop: "1px solid #DCDCDE",
+            pt: "20px",
+            mt: "20px",
+          }}
+        >
           <TextField
             fullWidth
             label="Type here..."
@@ -204,7 +203,6 @@ function Empty() {
               width: isDesktop ? "855px" : "100%",
               mr: isDesktop ? "20px" : "20px",
               ml: isDesktop ? "160px" : "20px",
-
             }}
           />
           <svg
@@ -213,21 +211,20 @@ function Empty() {
             viewBox="0 0 24 25"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-           
           >
             <path
               d="M22 2.5L11 13.5"
               stroke="#7F7D83"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M22 2.5L15 22.5L11 13.5L2 9.5L22 2.5Z"
               stroke="#7F7D83"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
         </Box>
