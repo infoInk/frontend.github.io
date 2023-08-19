@@ -7,36 +7,49 @@ function HomePage() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
 
-  const buttonHandler = () => {
-    const tempData = [...messages];
-    tempData.push(input);
-    setMessages(tempData);
-    setInput("");
+ const buttonHandler = () => {
+  const tempData = [...messages];
+  tempData.push({ sender: 'user', message: input });
 
-  };
+ 
+  const chatbotResponse = mockData.find(entry => entry.sender === 'UG' && entry.trigger === input);
+  console.log("Chatbot Response:", chatbotResponse);
+
+  if (chatbotResponse) {
+    tempData.push({ sender: 'UG', message: chatbotResponse.message });
+  }
+
+  setMessages(tempData);
+  setInput("");
+};
+
 
   const mockData = [
     { sender: 'user', message: 'Hello' },
-    { sender: 'UG', message: "Hello there, How may I help you today?" },
-
+    { sender: 'UG', trigger: 'Hello', message: "Hello there, How may I help you today?" },
+  
     { sender: 'user', message: 'What do I do next after receiving my admission letter?' },
-    { sender: 'UG', message: "Confirm Your Acceptance: Carefully read through your admission letter and follow the instructions on how to accept the admission offer. Typically, you will need to pay an acceptance fee and submit a confirmation form. The letter will provide specific details on how to proceed." }
-  ]
+    { sender: 'UG', trigger: 'What do I do next after receiving my admission letter?', message: "Confirm Your Acceptance: Carefully read through your admission letter and follow the instructions on how to accept the admission offer. Typically, you will need to pay an acceptance fee and submit a confirmation form. The letter will provide specific details on how to proceed." }
+  ];
+  
 
 
 
   return (
     <Container sx={{ my: "60px", mx: "40px" }}>
-      <Box>
-        {
-          messages.length ? (
-            <ul>
-              {messages.map((value, index) => (
-                <li key={index}>{value}</li>
-              ))}
-            </ul>
-          ) : null}
-      </Box>
+     <Box>
+  <List>
+    {messages.map((message, index) => (
+      <ListItem key={index} alignItems="center">
+        <ListItemText
+          primary={message.sender === 'user' ? 'You' : 'Chatbot'}
+          secondary={message.message}
+        />
+      </ListItem>
+    ))}
+  </List>
+</Box>
+
 
       <Box
         sx={{
