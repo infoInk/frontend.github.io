@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Container, TextField, Button, List, ListItem, ListItemText, useTheme, useMediaQuery } from '@mui/material';
+import React, { useState } from 'react';
+import { Container, TextField, List, ListItem, ListItemText } from '@mui/material';
 import Box from '@mui/material/Box';
 
 function HomePage() {
@@ -7,48 +7,74 @@ function HomePage() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
 
- const buttonHandler = () => {
-  const tempData = [...messages];
-  tempData.push({ sender: 'user', message: input });
+  // This function handles the behavior when the user clicks the send button.
+  const buttonHandler = () => {
+    // Create a copy of the current messages array to avoid direct mutation.
+    const tempData = [...messages];
 
- 
-  const chatbotResponse = mockData.find(entry => entry.sender === 'UG' && entry.trigger === input);
-  console.log("Chatbot Response:", chatbotResponse);
+    // Add the user's input as a new message to the array of messages.
+    tempData.push({ sender: 'user', message: input });
 
-  if (chatbotResponse) {
-    tempData.push({ sender: 'UG', message: chatbotResponse.message });
-  }
+    // Look for a corresponding chatbot response in the mockData based on the input trigger.
+    const chatbotResponse = mockData.find(entry => entry.sender === 'UG' && entry.trigger === input);
 
-  setMessages(tempData);
-  setInput("");
-};
+    // If a matching chatbot response is found, add it to the array of messages.
+    if (chatbotResponse) {
+      tempData.push({ sender: 'UG', message: chatbotResponse.response });
+    }
+
+    // Update the state with the new array of messages and clear the input field.
+    setMessages(tempData);
+    setInput("");
+  };
+
 
 
   const mockData = [
     { sender: 'user', message: 'Hello' },
-    { sender: 'UG', trigger: 'Hello', message: "Hello there, How may I help you today?" },
-  
+    { sender: 'UG', trigger: 'Hello', response: "Hello there, How may I help you today?" },
+
     { sender: 'user', message: 'What do I do next after receiving my admission letter?' },
-    { sender: 'UG', trigger: 'What do I do next after receiving my admission letter?', message: "Confirm Your Acceptance: Carefully read through your admission letter and follow the instructions on how to accept the admission offer. Typically, you will need to pay an acceptance fee and submit a confirmation form. The letter will provide specific details on how to proceed." }
+    { sender: 'UG', trigger: 'What do I do next after receiving my admission letter?', response: "Confirm Your Acceptance: Carefully read through your admission letter and follow the instructions on how to accept the admission offer. Typically, you will need to pay an acceptance fee and submit a confirmation form. The letter will provide specific details on how to proceed." }
   ];
-  
+
 
 
 
   return (
     <Container sx={{ my: "60px", mx: "40px" }}>
-     <Box>
-  <List>
-    {messages.map((message, index) => (
-      <ListItem key={index} alignItems="center">
-        <ListItemText
-          primary={message.sender === 'user' ? 'You' : 'Chatbot'}
-          secondary={message.message}
-        />
-      </ListItem>
-    ))}
-  </List>
-</Box>
+      <Box>
+        <List>
+          {messages.map((message, index) => (
+            <ListItem
+              key={index}
+              alignItems="flex-start"
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: message.sender === 'user' ? 'flex-end' : 'flex-start',
+                mb: 1,
+              }}
+            >
+              <ListItemText
+                primary={message.sender === 'user' ? 'You' : 'Chatbot'}
+              />
+              <span
+                style={{
+                  backgroundColor: message.sender === 'user' ? '#007BFF' : '#E5E5EA',
+                  color: message.sender === 'user' ? 'white' : 'black',
+                  borderRadius: '10px',
+                  padding: '8px 20px',
+                }}
+              >
+                {message.message}
+              </span>
+            </ListItem>
+          ))}
+        </List>
+      </Box>
+
+
 
 
       <Box
