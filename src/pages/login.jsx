@@ -1,4 +1,7 @@
-import React from "react";
+import React , { useEffect, useState }from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { auth, signInWithEmailAndPassword, signInWithGoogle } from "../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -7,6 +10,21 @@ import { ReactComponent as SocialIcon } from "./Social.svg";
 import "../styles/index.scss";
 
 function Login() {
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [user, loading, error] = useAuthState(auth);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (loading) {
+      // maybe trigger a loading screen
+      return;
+    }
+    if (user) navigate("/empty");
+  }, [user, loading]);
+
+
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
@@ -33,6 +51,8 @@ function Login() {
             label="Enter email"
             variant="filled"
             fullWidth
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             sx={{
               "& .MuiFilledInput-root": {
                 maxHeight: "40px",
@@ -45,6 +65,9 @@ function Login() {
             id="outlined-basic"
             label="Enter password"
             variant="filled"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+
             fullWidth
             sx={{
               "& .MuiFilledInput-root": {
@@ -67,6 +90,7 @@ function Login() {
             variant="contained"
             disableElevation
             className="button"
+            onClick={() => signInWithEmailAndPassword(email, password)}
             sx={{
               my: "20px",
               backgroundColor: "#1751D0",
@@ -80,6 +104,7 @@ function Login() {
           <Button
             variant="outlined"
             className="button"
+            onClick={signInWithGoogle}
             sx={{
               my: "20px",
               color: "black",
@@ -102,7 +127,7 @@ function Login() {
           }}
         >
           <Typography>Don't have an account? </Typography>
-          <Typography sx={{ color: "#1751D0" }}>Sign up</Typography>
+          <Typography sx={{ color: "#1751D0" }}> <Link to ="/">Sign Up </Link></Typography>
         </Container>
       </Box>
     </div>
