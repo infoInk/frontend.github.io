@@ -14,8 +14,7 @@ import { Container, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { ReactComponent as SocialIcon } from "./Social.svg";
 
 function SignUp() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState("");
 
   const theme = useTheme();
@@ -37,10 +36,10 @@ function SignUp() {
     try {
       const user = await createUserWithEmailAndPassword(
         auth,
-        name,
         email,
         password,
       );
+      console.log("email",email)
       console.log(user);
     } catch (error) {
       console.log(error.message);
@@ -79,7 +78,7 @@ function SignUp() {
             px: isDesktop ? "0" : "0px",
           }}
         >
-          <TextField
+          {/* <TextField
             id="outlined-basic"
             label="Enter name*"
             variant="filled"
@@ -93,9 +92,9 @@ function SignUp() {
                 backgroundColor: "#ffff",
               },
             }}
-          />
+          /> */}
           <TextField
-            id="outlined-basic"
+            id="email-input"
             label="Enter email*"
             variant="filled"
             fullWidth
