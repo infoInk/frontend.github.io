@@ -1,16 +1,29 @@
 import React from "react";
-import TextField from "@mui/material/TextField";
+import { signInWithGoogle } from "../firebase";
+import { useNavigate } from "react-router-dom";
+import TextField from "@mui/material/TextField"
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-// import { Google } from '@material-ui/icons';
 import "../styles/index.scss";
+
 import { Container, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { ReactComponent as SocialIcon } from "./Social.svg";
 
 function SignUp() {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const navigate = useNavigate(); // Correct usage of useNavigate
 
+  const handleSignInWithGoogle = async () => {
+    try {
+      const result = await signInWithGoogle();
+      // Handle successful sign-in
+      navigate("/empty");
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
   return (
     <div>
       <Box sx={{ py: "20px" }}>
@@ -19,6 +32,7 @@ function SignUp() {
         <Button
           variant="outlined"
           className="button"
+          onClick={handleSignInWithGoogle}
           sx={{
             my: "24px",
             color: "black",
