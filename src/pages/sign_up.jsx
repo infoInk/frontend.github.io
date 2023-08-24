@@ -1,5 +1,9 @@
-import React from "react";
-import { signInWithGoogle } from "../firebase";
+import React, { useState } from "react";
+import { signInWithGoogle, auth } from "../firebase";
+import {
+  createUserWithEmailAndPassword,
+
+} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField"
 import Box from "@mui/material/Box";
@@ -10,6 +14,10 @@ import { Container, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { ReactComponent as SocialIcon } from "./Social.svg";
 
 function SignUp() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   const navigate = useNavigate(); // Correct usage of useNavigate
@@ -24,6 +32,20 @@ function SignUp() {
     }
 
   }
+
+  const register = async () => {
+    try {
+      const user = await createUserWithEmailAndPassword(
+        auth,
+        name,
+        email,
+        password,
+      );
+      console.log(user);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   return (
     <div>
       <Box sx={{ py: "20px" }}>
@@ -62,6 +84,8 @@ function SignUp() {
             label="Enter name*"
             variant="filled"
             fullWidth
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             sx={{
               "& .MuiFilledInput-root": {
                 maxheight: "40px",
@@ -75,6 +99,8 @@ function SignUp() {
             label="Enter email*"
             variant="filled"
             fullWidth
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             sx={{
               "& .MuiFilledInput-root": {
                 maxheight: "40px",
@@ -88,6 +114,8 @@ function SignUp() {
             label="Create a password*"
             variant="filled"
             fullWidth
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             sx={{
               "& .MuiFilledInput-root": {
                 maxheight: "40px",
@@ -102,6 +130,7 @@ function SignUp() {
           variant="contained"
           disableElevation
           className="button"
+          onClick={register}
           sx={{
             my: "24px",
             backgroundColor: "#1751D0",
