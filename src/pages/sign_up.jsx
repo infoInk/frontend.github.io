@@ -25,7 +25,7 @@ function SignUp() {
     try {
       const result = await signInWithGoogle();
       // Handle successful sign-in
-      navigate("/empty");
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -34,17 +34,24 @@ function SignUp() {
 
   const register = async () => {
     try {
-      const user = await createUserWithEmailAndPassword(
+      const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
-        password,
+        password
       );
-      console.log("email",email)
-      console.log(user);
+  
+      // Registration successful
+      console.log("Registration successful");
+      console.log("email", email);
+      console.log("user", userCredential);
+  
+      // Navigate to /empty
+      navigate("/");
     } catch (error) {
-      console.log(error.message);
+      console.log("Registration error:", error.message);
     }
   };
+  
   return (
     <div>
       <Box sx={{ py: "20px" }}>

@@ -1,6 +1,10 @@
 import React , { useEffect, useState }from "react";
+import { auth } from "../firebase";
+import {
+  signInWithEmailAndPassword
+
+} from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuthState } from "react-firebase-hooks/auth";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -9,6 +13,21 @@ import { ReactComponent as SocialIcon } from "./Social.svg";
 import "../styles/index.scss";
 
 function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState("");
+
+  const login = async () => {
+    try {
+      const user = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      console.log(user);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
@@ -36,6 +55,8 @@ function Login() {
             label="Enter email"
             variant="filled"
             fullWidth
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             sx={{
               "& .MuiFilledInput-root": {
                 maxHeight: "40px",
@@ -48,8 +69,8 @@ function Login() {
             id="outlined-basic"
             label="Enter password"
             variant="filled"
-         
-          
+            value={password}
+            onChange={(e) => setEmail(e.target.value)} 
             fullWidth
             sx={{
               "& .MuiFilledInput-root": {
@@ -72,6 +93,7 @@ function Login() {
             variant="contained"
             disableElevation
             className="button"
+            onClick={login}
             sx={{
               my: "20px",
               backgroundColor: "#1751D0",
