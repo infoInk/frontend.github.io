@@ -15,6 +15,8 @@ import "../styles/index.scss";
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState("");
+  const navigate = useNavigate(); 
+
 
   const login = async () => {
     try {
@@ -23,7 +25,7 @@ function Login() {
         email,
         password
       );
-      console.log(user);
+      navigate("/");
     } catch (error) {
       console.log(error.message);
     }
@@ -70,7 +72,7 @@ function Login() {
             label="Enter password"
             variant="filled"
             value={password}
-            onChange={(e) => setEmail(e.target.value)} 
+            onChange={(e) => setPassword(e.target.value)} 
             fullWidth
             sx={{
               "& .MuiFilledInput-root": {
@@ -129,7 +131,7 @@ function Login() {
           }}
         >
           <Typography>Don't have an account? </Typography>
-          <Typography sx={{ color: "#1751D0" }}> <Link to ="/">Sign Up </Link></Typography>
+          <Typography sx={{ color: "#1751D0" }}> <Link to ="/signup">Sign Up </Link></Typography>
         </Container>
       </Box>
     </div>

@@ -4,7 +4,7 @@ import {
   createUserWithEmailAndPassword,
 
 } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField"
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -40,10 +40,7 @@ function SignUp() {
         password
       );
   
-      // Registration successful
-      console.log("Registration successful");
-      console.log("email", email);
-      console.log("user", userCredential);
+  
   
       // Navigate to /empty
       navigate("/");
@@ -156,7 +153,7 @@ function SignUp() {
           }}
         >
           <Typography>Already have an account? </Typography>
-          <Typography sx={{ color: "#1751D0" }}>Log in</Typography>
+          <Typography sx={{ color: "#1751D0" }}><Link to ="/login">Log in</Link></Typography>
         </Container>
       </Box>
     </div>
