@@ -19,12 +19,11 @@ function SignUp() {
 
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
-  const navigate = useNavigate(); // Correct usage of useNavigate
+  const navigate = useNavigate();
 
   const handleSignInWithGoogle = async () => {
     try {
       const result = await signInWithGoogle();
-      // Handle successful sign-in
       navigate("/");
     } catch (error) {
       console.log(error);
@@ -39,16 +38,13 @@ function SignUp() {
         email,
         password
       );
-  
-  
-  
-      // Navigate to /empty
+
       navigate("/");
     } catch (error) {
       console.log("Registration error:", error.message);
     }
   };
-  
+
   return (
     <div>
       <Box sx={{ py: "20px" }}>
@@ -82,21 +78,6 @@ function SignUp() {
             px: isDesktop ? "0" : "0px",
           }}
         >
-          {/* <TextField
-            id="outlined-basic"
-            label="Enter name*"
-            variant="filled"
-            fullWidth
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            sx={{
-              "& .MuiFilledInput-root": {
-                maxheight: "40px",
-                maxwidth: "400px",
-                backgroundColor: "#ffff",
-              },
-            }}
-          /> */}
           <TextField
             id="email-input"
             label="Enter email*"
@@ -117,6 +98,7 @@ function SignUp() {
             label="Create a password*"
             variant="filled"
             fullWidth
+            type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             sx={{
@@ -153,7 +135,7 @@ function SignUp() {
           }}
         >
           <Typography>Already have an account? </Typography>
-          <Typography sx={{ color: "#1751D0" }}><Link to ="/login">Log in</Link></Typography>
+          <Typography sx={{ color: "#1751D0" }}><Link to="/login">Log in</Link></Typography>
         </Container>
       </Box>
     </div>

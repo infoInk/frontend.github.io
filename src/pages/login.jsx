@@ -1,5 +1,5 @@
-import React , { useEffect, useState }from "react";
-import { auth } from "../firebase";
+import React, { useState } from "react";
+import { signInWithGoogle, auth } from "../firebase";
 import {
   signInWithEmailAndPassword
 
@@ -15,7 +15,7 @@ import "../styles/index.scss";
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
 
   const login = async () => {
@@ -30,6 +30,16 @@ function Login() {
       console.log(error.message);
     }
   };
+
+  const handleSignInWithGoogle = async () => {
+    try {
+      const result = await signInWithGoogle();
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
 
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
@@ -72,7 +82,8 @@ function Login() {
             label="Enter password"
             variant="filled"
             value={password}
-            onChange={(e) => setPassword(e.target.value)} 
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
             fullWidth
             sx={{
               "& .MuiFilledInput-root": {
@@ -109,6 +120,7 @@ function Login() {
           <Button
             variant="outlined"
             className="button"
+            onClick={handleSignInWithGoogle}
             sx={{
               my: "20px",
               color: "black",
@@ -131,7 +143,7 @@ function Login() {
           }}
         >
           <Typography>Don't have an account? </Typography>
-          <Typography sx={{ color: "#1751D0" }}> <Link to ="/signup">Sign Up </Link></Typography>
+          <Typography sx={{ color: "#1751D0" }}> <Link to="/signup">Sign Up </Link></Typography>
         </Container>
       </Box>
     </div>
