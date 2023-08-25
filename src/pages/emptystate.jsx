@@ -1,4 +1,5 @@
 import { Container, Typography, useMediaQuery, useTheme } from "@mui/material";
+import Nav from '../components/nav'
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import React from "react";
@@ -8,6 +9,7 @@ function Empty() {
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   return (
     <div>
+       <Nav />
       <Container sx={{ my: "60px", mx: isDesktop ? "40px" : "100px" }}>
         <svg
           width="307"

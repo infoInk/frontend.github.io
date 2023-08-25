@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Nav from '../components/nav'
 import { Container, TextField, List, ListItem, ListItemText } from '@mui/material';
 import Box from '@mui/material/Box';
 
@@ -42,7 +43,10 @@ function HomePage() {
 
 
   return (
+    <div>
+    <Nav />
     <Container sx={{ my: "60px", mx: "40px" }}>
+      
       <Box>
         <List>
           {messages.map((message, index) => (
@@ -125,6 +129,7 @@ function HomePage() {
         </svg>
       </Box>
     </Container>
+    </div>
   );
 };
 
