@@ -1,5 +1,5 @@
-import React, {useEffect, useState } from "react";
-import {auth} from "../firebase"; // Import your firebaseConfig file
+import React, { useEffect, useState } from "react";
+import { auth } from "../firebase"; // Import your firebaseConfig file
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Popover from "@mui/material/Popover";
@@ -7,25 +7,11 @@ import SidebarLayout from "../components/sidebar";
 
 
 function Nav() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
-      if (user) {
-        setIsAuthenticated(true);
-      } else {
-        setIsAuthenticated(false);
-      }
-    });
-
-    return () => unsubscribe();
-  }, []);
-
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
   const handleNewChatClick = () => {
-    window.location.href = "/"; // Redirect using window.location.href
+    window.location.href = "/"; 
   };
 
   const handleLogout = () => {
@@ -69,42 +55,25 @@ function Nav() {
             }}
           >
             <SidebarLayout />
-           
+
             <Button
-        variant="contained"
-        disableElevation
-        className="button"
-        sx={{
-          my: "24px",
-          backgroundColor: "#1751D0",
-          textTransform: "none",
-          height: "30px",
-          width: "76px",
-          whiteSpace: "nowrap",
-          mx: "200px"
-        }}
-        onClick={handleNewChatClick} 
-      >
-        New Chat
-      </Button>
- 
-
-
-
-
-
-
-
-    
- 
-
-
-
-
-
-
+              variant="contained"
+              disableElevation
+              className="button"
+              sx={{
+                my: "24px",
+                backgroundColor: "#1751D0",
+                textTransform: "none",
+                height: "30px",
+                width: "76px",
+                whiteSpace: "nowrap",
+                mx: "200px"
+              }}
+              onClick={handleNewChatClick}
+            >
+              New Chat
+            </Button>
           </Box>
-
           <svg
             width="32"
             height="32"
