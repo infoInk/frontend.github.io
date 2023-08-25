@@ -177,7 +177,7 @@ function Empty() {
             <strong>Welcome to UGChat!</strong>
           </Typography>
           <Typography>
-            <strong>How may help you today?</strong>
+            <strong>How may I help you today?</strong>
           </Typography>
           <Typography sx={{ my: "10px" }}>
             I'm here to provide you with the information you're seeking.

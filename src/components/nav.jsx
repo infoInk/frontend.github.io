@@ -1,10 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
+import Popover from "@mui/material/Popover";
 import SidebarLayout from "../components/sidebar";
 
 
 function Nav() {
+
+
+
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+
+  const handleLogout = () => {
+
+    localStorage.clear();
+
+
+    window.location.href = "/login";
+
+  };
+
+
+
+
+
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+
   return (
     <div>
       <Box
@@ -27,7 +57,7 @@ function Nav() {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-             
+
             }}
           >
             <SidebarLayout />
@@ -42,7 +72,7 @@ function Nav() {
                 height: "30px",
                 width: "76px",
                 whiteSpace: "nowrap",
-                mx:"200px"
+                mx: "200px"
               }}
             >
               New Chat
@@ -55,6 +85,7 @@ function Nav() {
             viewBox="0 0 48 48"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            onClick={handleClick}
           >
             <circle cx="24" cy="24" r="24" fill="#ECECED" />
             <path
@@ -66,6 +97,25 @@ function Nav() {
               fill="#7F7D83"
             />
           </svg>
+          <Popover
+            open={open}
+            anchorEl={anchorEl}
+            onClose={handleClose}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "center",
+            }}
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "center",
+            }}
+          >
+            <Box p={2}>
+              <Button variant="outlined" onClick={handleLogout}>
+                Logout
+              </Button>
+            </Box>
+          </Popover>
         </Box>
       </Box>
     </div>
