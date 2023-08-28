@@ -34,6 +34,8 @@ function Nav() {
           boxShadow: "0px 4px 4px -2px rgba(0, 0, 0, 0.1)",
           maxWidth: "100%",
           maxHeight: "70px",
+          backgroundColor: "#fff", // Set the background color here
+
         }}
       >
         <Box
@@ -65,7 +67,7 @@ function Nav() {
                 height: "30px",
                 width: "76px",
                 whiteSpace: "nowrap",
-                mx: "20x"
+                mx: "20px"
               }}
               onClick={handleNewChatClick}
             >
