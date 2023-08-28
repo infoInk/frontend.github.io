@@ -26,7 +26,7 @@ function PrivateRoute({ path, element }) {
     return () => unsubscribe();
   }, []);
 
-  return isAuthenticated ? element : <Navigate to="/" />;
+  return isAuthenticated ? element : <Navigate to="/empty" />;
 }
 
 function App() {
@@ -35,9 +35,10 @@ function App() {
       <Router>
      
         <Routes>
-          <Route path="/" element={<PrivateRoute element={<LogIn />} />} />
-          <Route path="/empty" element={<Empty />} />
+          <Route path="/" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
+          {/* <Route path="/empty" element={<Empty />} /> */}
+          <Route path="/empty" element={<PrivateRoute element={<Empty />} />} />
         </Routes>
       </Router>
     </div>

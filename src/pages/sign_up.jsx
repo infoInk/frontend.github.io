@@ -39,7 +39,7 @@ function SignUp() {
         password
       );
 
-      navigate("/");
+      navigate("/empty");
     } catch (error) {
       console.log("Registration error:", error.message);
     }

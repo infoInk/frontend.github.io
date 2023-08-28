@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { auth } from "../firebase"; // Import your firebaseConfig file
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Popover from "@mui/material/Popover";
-import SidebarLayout from "../components/sidebar";
 
 
 function Nav() {
@@ -11,12 +9,12 @@ function Nav() {
   const open = Boolean(anchorEl);
 
   const handleNewChatClick = () => {
-    window.location.href = "/"; 
+    window.location.href = "/empty"; 
   };
 
   const handleLogout = () => {
     localStorage.clear();
-    window.location.href = "/login";
+    window.location.href = "/";
 
   };
 

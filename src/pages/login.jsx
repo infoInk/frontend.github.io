@@ -25,7 +25,7 @@ function Login() {
         email,
         password
       );
-      navigate("/");
+      navigate("/empty");
     } catch (error) {
       console.log(error.message);
     }
