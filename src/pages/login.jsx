@@ -34,7 +34,7 @@ function Login() {
   const handleSignInWithGoogle = async () => {
     try {
       const result = await signInWithGoogle();
-      navigate("/");
+      navigate("/empty");
     } catch (error) {
       console.log(error);
     }
