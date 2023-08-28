@@ -1,17 +1,57 @@
-import { Container, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Container, Typography, useMediaQuery, useTheme,  List, ListItem, ListItemText } from "@mui/material";
 import Nav from '../components/nav'
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
-import React from "react";
+import React , {useState} from "react";
 
 function Empty() {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+
+  const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState('');
+  const [introVisible, setIntroVisible] = useState(true); // State to manage introduction visibility
+  const [svgVisible, setSvgVisible] = useState(true); // State to manage SVG visibility
+
+  
+
+  const onSendButton = () => {
+    if (input === "") {
+      return;
+    }
+
+    let msg1 = { name: "User", message: input };
+    setMessages(prevMessages => [...prevMessages, msg1]);
+
+    fetch('https://ug-chatbot.onrender.com/predict', {
+      method: 'POST',
+      body: JSON.stringify({ message: input }),
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+    .then(response => response.json())
+    .then(data => {
+      let msg2 = { name: "Sam", message: data.answer };
+      setMessages(prevMessages => [...prevMessages, msg2]);
+      setInput('');
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      setInput('');
+    });
+    setSvgVisible(false);
+    setIntroVisible(false); // Hide SVG after sending a message
+
+  };
+
   return (
     <div>
        <Nav />
       <Container sx={{ my: "60px", mx: isDesktop ? "40px" : "100px" }}>
-        <svg
+      {svgVisible && ( // Conditionally render SVG based on svgVisible state
+          <svg
           width="307"
           height="214"
           fill="none"
@@ -174,18 +214,52 @@ function Empty() {
             </filter>
           </defs>
         </svg>
-        <Box sx={{ my: isDesktop ? "40px" : "0px" }}>
-          <Typography>
-            <strong>Welcome to UGChat!</strong>
-          </Typography>
-          <Typography>
-            <strong>How may I help you today?</strong>
-          </Typography>
-          <Typography sx={{ my: "10px" }}>
-            I'm here to provide you with the information you're seeking.
-            <br /> So go ahead, ask away and let's start our conversation!
-          </Typography>
+        
+        )}
+         {introVisible && (
+          <Box sx={{ my: isDesktop ? "40px" : "0px" }}>
+            <Typography>
+              <strong>Welcome to UGChat!</strong>
+            </Typography>
+            <Typography>
+              <strong>How may I help you today?</strong>
+            </Typography>
+            <Typography sx={{ my: "10px" }}>
+              I'm here to provide you with the information you're seeking.
+              <br /> So go ahead, ask away and let's start our conversation!
+            </Typography>
+          </Box>)}
+          <Box sx={{ my: isDesktop && !introVisible ? "40px" : "0px" }}>
+          <List>
+            {messages.map((message, index) => (
+              <ListItem
+                key={index}
+                alignItems="flex-start"
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: message.name === "User" ? "flex-end" : "flex-start",
+                  mb: 1,
+                }}
+              >
+                <ListItemText
+                  primary={message.name === "User" ? "You" : "UG Chat"}
+                />
+                <span
+                  style={{
+                    backgroundColor: message.name === "User" ? "#007BFF" : "#E5E5EA",
+                    color: message.name === "User" ? "white" : "black",
+                    borderRadius: "10px",
+                    padding: "8px 20px",
+                  }}
+                >
+                  {message.message}
+                </span>
+              </ListItem>
+            ))}
+          </List>
         </Box>
+     
         <Box
           sx={{
             display: "flex",
@@ -200,6 +274,8 @@ function Empty() {
             fullWidth
             label="Type here..."
             id="fullWidth"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
             sx={{
               mb: isDesktop ? "0" : "20px",
               width: isDesktop ? "855px" : "100%",
@@ -213,6 +289,8 @@ function Empty() {
             viewBox="0 0 24 25"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            onClick={onSendButton}
+            style={{ cursor: "pointer" }}
           >
             <path
               d="M22 2.5L11 13.5"
@@ -236,3 +314,5 @@ function Empty() {
 }
 
 export default Empty;
+
+

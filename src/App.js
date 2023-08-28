@@ -8,7 +8,6 @@ import {
 import SignUp from './pages/sign_up';
 import Empty from './pages/emptystate';
 import LogIn from './pages/login';
-import Home from './pages/home';
 import { auth } from "./firebase"; 
 import './App.css';
 
@@ -39,7 +38,6 @@ function App() {
           <Route path="/" element={<PrivateRoute element={<Empty />} />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/home" element={<PrivateRoute element={<Home />} />} />
         </Routes>
       </Router>
     </div>
