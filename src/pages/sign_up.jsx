@@ -135,7 +135,7 @@ function SignUp() {
           }}
         >
           <Typography>Already have an account? </Typography>
-          <Typography sx={{ color: "#1751D0" }}><Link to="/login">Log in</Link></Typography>
+          <Typography sx={{ color: "#1751D0" }}><Link to="/">Log in</Link></Typography>
         </Container>
       </Box>
     </div>
