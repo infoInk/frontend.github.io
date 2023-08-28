@@ -54,7 +54,7 @@ function Nav() {
 
             }}
           >
-            <SidebarLayout />
+            {/* <SidebarLayout /> */}
 
             <Button
               variant="contained"
@@ -67,7 +67,7 @@ function Nav() {
                 height: "30px",
                 width: "76px",
                 whiteSpace: "nowrap",
-                mx: "200px"
+                mx: "20x"
               }}
               onClick={handleNewChatClick}
             >
