@@ -26,7 +26,7 @@ function PrivateRoute({ path, element }) {
     return () => unsubscribe();
   }, []);
 
-  return isAuthenticated ? element : <Navigate to="/empty" />;
+  return isAuthenticated ? element : <Navigate to="/" />;
 }
 
 function App() {
