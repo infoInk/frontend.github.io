@@ -52,7 +52,7 @@ function Empty() {
       <Box style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000 }}>
         <Nav />
       </Box>
-      <Container sx={{ paddingTop: "80px", my: "80px", mx: isDesktop ? "40px" : "0px" }}>
+      <Container sx={{ my: "80px", mx: isDesktop ? "40px" : "0px" }}>
         {svgVisible && ( // Conditionally render SVG based on svgVisible state
           <svg
             width="307"
